@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 import { useState } from "react";
 const App = () => {
   // putting into App becomes global state and then we can pass to our components
@@ -41,6 +42,7 @@ const App = () => {
   return (
     <div className="container">
       <Header title="Hello Task Tracker" />
+      <AddTask />
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelte={deleteTask} onToggle={toggleReminder} />
       ) : (
