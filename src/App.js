@@ -26,12 +26,24 @@ const App = () => {
   };
 
   // Add Task
-  const addTask = (task) => {
+  const addTask = async (task) => {
+    // we have our respond which is a new Task
+    const res = await fetch("http://localhost:3001/tasks", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(task),
+    });
+
+    // get the data from this res, data represent new task
+    const data = await res.json();
+    // setTask to manipulate our tasks state
+    setTasks([...tasks, data]);
+
     // give a random new Id, and create a newTask within Id
     // setTasks([]) is an array then we want to keep our previous tasks and then add a new task
-    const id = Math.floor(Math.random() * 10000) + 1;
-    const newTask = { id, ...task }; // is an new object within Id
-    setTasks([...tasks, newTask]);
+    // const id = Math.floor(Math.random() * 10000) + 1;
+    // const newTask = { id, ...task }; // is an new object within Id
+    // setTasks([...tasks, newTask]);
   };
 
   // Delete Task func
