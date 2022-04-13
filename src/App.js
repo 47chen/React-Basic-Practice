@@ -17,6 +17,7 @@ const App = () => {
     getTasks();
   }, []);
 
+  // Fetch Tasks
   const fetchTasks = async () => {
     const res = await fetch("http://localhost:3001/tasks");
     const data = await res.json();
@@ -34,7 +35,11 @@ const App = () => {
   };
 
   // Delete Task func
-  const deleteTask = (id) => {
+
+  // fetch(url, object), second is a paras that tell server to do what action
+  const deleteTask = async (id) => {
+    await fetch(`http://localhost:3001/tasks/${id}`, { method: "DELETE" });
+    // update the UI to filter the task which task is not equal our Id
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
