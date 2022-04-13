@@ -1,11 +1,28 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const App = () => {
   // putting into App becomes global state and then we can pass to our components
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks(); // promise need async and await
+      // and now we have our fetchTasks we can store them into our Task state
+      setTasks(tasksFromServer);
+    };
+
+    getTasks();
+  }, []);
+
+  const fetchTasks = async () => {
+    const res = await fetch("http://localhost:3001/tasks");
+    const data = await res.json();
+
+    return data;
+  };
 
   // Add Task
   const addTask = (task) => {
