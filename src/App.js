@@ -5,26 +5,7 @@ import { useState } from "react";
 const App = () => {
   // putting into App becomes global state and then we can pass to our components
   const [showAddTask, setShowAddTask] = useState(false);
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text: "Go Eat Dinner",
-      day: "Feb 5th a 2:30pm",
-      reminder: true,
-    },
-    {
-      id: 2,
-      text: "Meeting at School",
-      day: "Feb 6th a 1:30pm",
-      reminder: true,
-    },
-    {
-      id: 3,
-      text: "Food Shopping",
-      day: "Feb 7th a 3:30pm",
-      reminder: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   // Add Task
   const addTask = (task) => {
