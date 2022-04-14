@@ -2,8 +2,8 @@
 
 ## Practice reactHook such as useState/useEffect and fetch tasks from our mock backend server -> db.json to mock an RESTful APIs to funtion our CRUD opertaion.
 ## Practice conditional styling.
-
-## Check comments to review more basic react knowledge
+## Global state field and component state field.
+## Check comments to review more basic react knowledge.
 
 
 
